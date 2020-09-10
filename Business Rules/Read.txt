@@ -1,0 +1,26 @@
+Thanks to https://github.com/corodrigues
+
+The purpose of these scripts is sync the field 'state': sc_task, sc_req_item and the field 'request_state': sc_request.
+
+
+I assumed that the catalog item is using the Flow instead of Workflow. May works, but I didn't tested. 
+
+For the scripts to work correctly, some modifications must be made in the Flow of each catalog item.
+
+For each catalog item with sctak (asynchronous or synchronous), the flow has to be analyzedor following each one of the premises below:
+
+ - An action of the kind 'Update Record' should be add at the end of ALL sctask(s). It's can be replaced adding the stage 'Completed' on the flow instead;
+ - If the sctask doesn't have the checkbox 'wait' checked, it's needed add an 'Wait for Condition' action.
+
+
+Action (Updated Record):
+   - Action: Update record
+   - Record: Trigger -> Requested Item Record
+   - Table: sc_req_item
+   - Fields: Stage | Completed
+
+Action (Wait for a Condition):
+   - Record: (drag and drop the sctask)
+   - Table: sc_task
+   - Conditions: Active is false
+
