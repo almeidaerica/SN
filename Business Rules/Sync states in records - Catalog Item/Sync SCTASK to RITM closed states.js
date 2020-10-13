@@ -30,9 +30,9 @@ Filter Conditions: Stage | changes to | Closed Complete
             isClosedI = false;
         }
     }
-    if (isClosedI) current.state = 4;
-    if (isClosedC) current.state = 3;
-    if (isClosedS) current.state = 7;
+    if (isClosedI) current.setValue('state', 4);
+    if (isClosedC) current.setValue('state', 3);
+    if (isClosedS) current.setValue('state', 7);
 
    //current.update();
 
