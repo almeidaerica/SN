@@ -34,6 +34,6 @@ Filter Conditions: Stage | changes to | Closed Complete
     if (isClosedC) current.state = 3;
     if (isClosedS) current.state = 7;
 
-    current.update();
+   //current.update();
 
 })(current, previous);
