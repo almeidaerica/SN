@@ -44,12 +44,12 @@ Filter Conditions: State | changes
     }
 
     if (isPending) {
-        grReqItem.state = -5;
+        grReqItem.setValue('state', -5);
     } else {
         if(isOpen) {
-            grReqItem.state = 1;
+            grReqItem.setValue('state', 1);
         } else {
-            if(hasWIP || hasOpen) grReqItem.state = 2;   
+            if(hasWIP || hasOpen) grReqItem.setValue('state', 2);   
         }
     }
 
